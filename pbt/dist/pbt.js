@@ -75,10 +75,15 @@
 	  var i;
 	  var count;
 	  var temp;
+	  var row;
 
 	  // Check to see if a table element was pasted
 	  var results = editor.find('table tbody tr');
-	  var row;
+
+	  if (results.length <= 0) {
+	    results = editor.find('tr'); // Try more loose find <-- addresses Windows Firefox issue
+	  }
+
 	  if (results.length > 0) {
 	    count = results.length;
 
